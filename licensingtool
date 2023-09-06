@@ -1,0 +1,22 @@
+#!/bin/bash
+# TODO: Debug a better way to catch only the files I want. Rn it doesn't even catch .DS_store
+# TODO: If a file has a white space rename it without them then execute exiftool
+# TODO: Add argument compatibility
+
+license="This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
+author="Willow Leahy"
+directory=$PWD
+
+# Use command substitution to capture the list of files
+# and store them in the 'files' variable
+files=("$directory"/* "$directory"/.*)
+
+# Loop through the 'files' array and process each file
+for file in "${files[@]}"; do
+    # Check if the file exists and is not a directory
+    if [ -f "$file" ]; then
+        if [ "${file}" != "${PWD}.DS_Store" ]; then
+            exiftool -Copyright="${license}" -Artist="${author}" -overwrite_original "${file}"
+        fi
+    fi
+done
