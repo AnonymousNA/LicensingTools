@@ -1,7 +1,4 @@
 #!/bin/bash
-# TODO: Debug a better way to catch only the files I want. Rn it doesn't even catch .DS_store
-# TODO: If a file has a white space rename it without them then execute exiftool
-# TODO: Add argument compatibility
 
 license="This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
 author="Willow Leahy"
